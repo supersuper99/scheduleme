@@ -1,17 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header>
+  <ion-toolbar color="dark">
     <ion-title>
-      Tab 1
+      Tattoo Appointment Scheduler
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content class="ion-padding">
+  <ion-list lines="full" class="ion-no-margin ion-no-padding">
+    <ion-item>
+      <ion-label position="floating">Tattoo Type</ion-label>
+      <ion-select interface="popover" placeholder="Select One">
+        <ion-select-option value="traditional">Traditional</ion-select-option>
+        <ion-select-option value="tribal">Tribal</ion-select-option>
+        <ion-select-option value="realism">Realism</ion-select-option>
+        <!-- Add other types as needed -->
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Date</ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYY" min="2023-01-01" max="2025-12-31"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Select Time</ion-label>
+      <ion-select interface="popover" placeholder="Available Times">
+        <ion-select-option value="9:00 AM" disabled>9:00 AM - Filled</ion-select-option>
+        <ion-select-option value="10:00 AM">10:00 AM - Available</ion-select-option>
+        <ion-select-option value="11:00 AM">11:00 AM - Available</ion-select-option>
+        <!-- Add more times as needed -->
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" color="tertiary" (click)="scheduleAppointment()">Schedule Appointment</ion-button>
 </ion-content>

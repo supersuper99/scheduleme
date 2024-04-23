@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(public toastController: ToastController) {}
+  async scheduleAppointment() {
+    const toast = await this.toastController.create({
+      message: 'Your appointment has been successfully scheduled.',
+      duration: 2000,
+      color: 'medium' // Changed to a less bright color to fit the dark theme
+    });
+    toast.present();
+  }
 
 }
